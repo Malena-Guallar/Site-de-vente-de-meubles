@@ -4,6 +4,7 @@ import Furnitures from "./Pages/Furnitures";
 import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
+import Subscribe from "./Pages/Subscribe";
 
 function App() {
  
@@ -20,9 +21,10 @@ function App() {
           <Route path="/outdoor" element={<Outdoor />} ></Route>
           <Route path="/indoor" element={<Indoor />} ></Route>
 
+          <Route path="/" element={<Home />} />
+          <Route path="/subscribe" element={<Subscribe />} />
 
         </Routes>
-      
       
       </BrowserRouter>
     </>
