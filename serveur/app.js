@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const furniture = require('./routes/route_articles') // Route to the Api 
+const users = require('./routes/route_users')
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const app = express();
 require("dotenv").config();
 
@@ -31,6 +33,9 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({extended: true}));
 
 app.use('/furniture', furniture);  // Api path
+app.use('/users', users);  // Api path
   module.exports = app;
+
+
 
 
