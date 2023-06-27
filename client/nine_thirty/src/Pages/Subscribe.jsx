@@ -52,6 +52,11 @@ function Subscribe() {
 
         if (name === '' || email === '' || surname === ''|| password === '' || confirmPassword === ''){
             setError(true);
+            
+        } else if (password != confirmPassword) {
+            setError(true);
+            console.log("ca marche ap")
+
         } else {
             setSubmitted(true);
             setError(false);
@@ -75,10 +80,10 @@ function Subscribe() {
 
         <div>
             <form onSubmit={handleSubmit}>
-                <p>coucou</p>
+                <p>subscription</p>
                 <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
                 <input type="text" placeholder="Enter your name" id="name" value={name} onChange={handleName}/>
-                <input type="text" placeholder="Enter your name" id="surname" value={surname} onChange={handleSurname}/>
+                <input type="text" placeholder="Enter your surname" id="surname" value={surname} onChange={handleSurname}/>
                 <input type="password" placeholder="Enter password" id="password" value={password} onChange={handlePassword}/>
                 <input type="password" placeholder="Confirm password" id="confirmPassword" value={confirmPassword} onChange={handlePasswordConfirmation}/>
                 <input type="submit"></input>
