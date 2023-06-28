@@ -52,9 +52,15 @@ function Furnitures () {
                     // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
                     // en personnalisant ses props avec les données de l'objet concerné. 
                     <Furniture 
-                        key={element.id} 
-                        type={element.type} 
+                        key={element.id}
+                        //picture={element.picture}
+                        type={element.type}
+                        description={element.description}
                         price={element.price + " €"}
+                        material={element.material}
+                        size_height={element.size_height}
+                        size_width={element.size_width}
+                        size_deep={element.size_deep}
                         />
                     ))
                 ) : null}
