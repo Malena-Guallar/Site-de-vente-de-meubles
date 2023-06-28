@@ -9,6 +9,7 @@ function Subscribe() {
     const [surname, setSurname] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [subscribed, setSubscribed] = useState(false);
 
     // States for checking the errors
     const [submitted, setSubmitted] = useState(false);
@@ -70,7 +71,7 @@ function Subscribe() {
                 body: JSON.stringify({name, surname, email, password})
             })
             .then(res => res.json())
-            .then(res => console.log(JSON.stringify(res)))
+            .then(res => console.log(JSON.stringify(res)), setSubscribed(true))
             .catch(error => console.log(error))
         }
     }
@@ -80,17 +81,21 @@ function Subscribe() {
     return (
 
         <div>
-            <form onSubmit={handleSubmit}>
-                <p class="text-red-100">subscription</p>
-                <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
-                <input type="text" placeholder="Enter your name" id="name" value={name} onChange={handleName}/>
-                <input type="text" placeholder="Enter your surname" id="surname" value={surname} onChange={handleSurname}/>
-                <input type="password" placeholder="Enter password" id="password" value={password} onChange={handlePassword}/>
-                <input type="password" placeholder="Confirm password" id="confirmPassword" value={confirmPassword} onChange={handlePasswordConfirmation}/>
-                <input type="submit"></input>
-            </form>
+        {!subscribed ? ( 
+                <form onSubmit={handleSubmit}>
+                    <p class="text-red-100">subscription</p>
+                    <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
+                    <input type="text" placeholder="Enter your name" id="name" value={name} onChange={handleName}/>
+                    <input type="text" placeholder="Enter your surname" id="surname" value={surname} onChange={handleSurname}/>
+                    <input type="password" placeholder="Enter password" id="password" value={password} onChange={handlePassword}/>
+                    <input type="password" placeholder="Confirm password" id="confirmPassword" value={confirmPassword} onChange={handlePasswordConfirmation}/>
+                    <input type="submit"></input>
+                </form>
+        ) : (
+                <p>Thank you for your registration !</p>
+                )}
         </div>
-    )
+    );
 };
 
 
