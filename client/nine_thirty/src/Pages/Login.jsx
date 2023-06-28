@@ -6,22 +6,18 @@ function Login() {
     // States for registration
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    // States for checking the errors
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState('');
 
 
     // Handling email change
     const handleEmail = (e) => {
         setEmail(e.target.value);
-        setSubmitted(false);
     };
 
     // Handling password change
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        setSubmitted(false);
     };
 
     // Handling form submission
@@ -45,8 +41,8 @@ function Login() {
                 console.log("one of the input is wrong")
             } else if (email === emailFromDB && password === passwordFromDB){
                 console.log("ok")
-                const loggedUser = email;
-                console.log(loggedUser)
+                setIsLoggedIn(true);
+                setUser(user);
             }  
         });
 };
@@ -56,14 +52,19 @@ function Login() {
     return (
 
         <div>
-            <form onSubmit={handleSubmit}>
-                <p class="text-red-100">login</p>
-                <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
-                <input type="password" placeholder="Enter password" id="password" value={password} onChange={handlePassword}/>
-                <input type="submit"></input>
-            </form>
+        {!isLoggedIn ? (
+                <form onSubmit={handleSubmit}>
+                    <p class="text-red-100">login</p>
+                    <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
+                    <input type="password" placeholder="Enter password" id="password" value={password} onChange={handlePassword}/>
+                    <input type="submit"></input>
+                </form>
+        ) : (
+
+            <p>Hi {user} and welcome </p>
+            )}
         </div>
-    )
+    );
 };
 
 
