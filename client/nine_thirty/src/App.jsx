@@ -5,6 +5,7 @@ import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
 import Subscribe from "./Pages/Subscribe";
+import Login from "./Pages/Login"
 
 function App() {
  
@@ -23,6 +24,7 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/subscribe" element={<Subscribe />} />
+          <Route path="/login" element={<Login />} />
 
         </Routes>
       

@@ -52,7 +52,8 @@ function Subscribe() {
 
         if (name === '' || email === '' || surname === ''|| password === '' || confirmPassword === ''){
             setError(true);
-            
+
+        // Password verification
         } else if (password != confirmPassword) {
             setError(true);
             console.log("ca marche ap")
