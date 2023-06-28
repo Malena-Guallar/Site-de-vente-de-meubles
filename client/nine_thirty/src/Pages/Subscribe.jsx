@@ -80,7 +80,7 @@ function Subscribe() {
 
         <div>
             <form onSubmit={handleSubmit}>
-                <p>subscription</p>
+                <p class="text-red-100">subscription</p>
                 <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
                 <input type="text" placeholder="Enter your name" id="name" value={name} onChange={handleName}/>
                 <input type="text" placeholder="Enter your surname" id="surname" value={surname} onChange={handleSurname}/>
