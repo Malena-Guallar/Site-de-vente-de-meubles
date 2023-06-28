@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Navigation () {
     return (
         <div>
-            <ul>
+            <ul class="flex justify-evenly">
                 <NavLink to='/'>
                     <li>Home</li>
                 </NavLink>
