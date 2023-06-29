@@ -26,7 +26,11 @@ function Furnitures () {
 
                 {data ? (
                     data.map(element => (
-                    <Furniture key={element.id} type={element.type} />
+                    <Furniture 
+                        key={element.id} 
+                        type={element.type} 
+                        price={element.price + " €"}
+                        />
                     ))
                 ) : null}
         </div>
