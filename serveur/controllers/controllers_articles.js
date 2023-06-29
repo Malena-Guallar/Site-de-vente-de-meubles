@@ -12,11 +12,33 @@ exports.getArticles = (req, res, next) => {
     });
 };
 exports.createArticles = (req, res, next) => {
-  const articleObjects = req.body; 
+  const articleObjects = req.body;
   const article = new Article(articleObjects);
 
   article
     .save()
     .then(() => res.status(201).json({ message: "Registered articles!" }))
     .catch((error) => res.status(400).json({ error }));
+};
+
+exports.updateArticles = async (req, res) => {
+  const article = await Article.findById(req.params._id);
+  console.log(article)
+
+  if (!article) {
+    res.status(400).json({ message: "Not found!" });
+  }
+
+  const updateArticle = await Article.findByIdAndUpdate(article, req.body);
+  res.status(200).json({ message: " Updated" });
+};
+
+exports.deleteArticles = async (req, res) => {
+  const article = await Article.findById(req.params._id);
+  if (!article) {
+    res.status(400).json({ message: "Not found!" });
+  }
+
+  const deleteArticle = await article.deleteOne();
+  res.status(200).json({ message: "Successfully deleted" });
 };

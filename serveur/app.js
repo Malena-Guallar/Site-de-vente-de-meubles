@@ -34,7 +34,7 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({extended: true}));
 
 // *** Api path , one for the furnitures and one for the users
-app.use('/furniture', furniture);  
+app.use('/furnitures', furniture);  
 app.use('/users', users);  
 module.exports = app;
 
