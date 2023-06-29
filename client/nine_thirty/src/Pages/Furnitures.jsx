@@ -41,3 +41,5 @@ function Furnitures () {
 export default Furnitures;
 
 // https://649ada96bf7c145d02399a1b.mockapi.io/furniture/articles
+
+// add other props
