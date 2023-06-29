@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Furniture from '../Components/Furniture';
+import Buttons from '../Components/Buttons';
+import { filterItem } from '../assets/FilterItem';
 
 function Furnitures () {
 
     const [data, setData] = useState([])
+
+    const categories = [... new Set(data.map((element) => element.category))]
     
     useEffect(() => {
         const getData = () => {
@@ -22,7 +26,9 @@ function Furnitures () {
 
         <div>
         
-            <p>Page Furnitures</p>
+            <p>Filtres : </p>
+
+            <Buttons setCategory={(category) => filterItem(category, setData, data)} categories={categories} />
 
                 {data ? (
                     data.map(element => (
