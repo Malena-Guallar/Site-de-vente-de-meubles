@@ -11,6 +11,17 @@ exports.getArticles = (req, res, next) => {
       });
     });
 };
+exports.getArticlesById = (req, res, next) => {
+  Article.findById(req.params._id)
+    .then((article) => {
+      res.status(200).json(article);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};
 exports.createArticles = (req, res, next) => {
   const articleObjects = req.body;
   const article = new Article(articleObjects);
