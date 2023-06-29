@@ -1,6 +1,6 @@
 const Article = require("../models/models_articles");
 
-exports.getAll = (req, res, next) => {
+exports.getArticles = (req, res, next) => {
   Article.find()
     .then((articles) => {
       res.status(200).json(articles);
@@ -11,7 +11,7 @@ exports.getAll = (req, res, next) => {
       });
     });
 };
-exports.create = (req, res, next) => {
+exports.createArticles = (req, res, next) => {
   const articleObjects = req.body; 
   const article = new Article(articleObjects);
 

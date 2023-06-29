@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
-const furniture = require('./routes/route_articles') // Route to the Api 
-const users = require('./routes/route_users')
+const furniture = require('./routes/route_articles') // Route to the Api furniture
+const users = require('./routes/route_users') // Route to the Api users
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -16,7 +16,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
-  // *************Connection to MongoDB*************
+
+// *************Connection to MongoDB*************
   mongoose.connect(process.env.DB_MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -24,17 +25,18 @@ app.use((req, res, next) => {
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch((error) => console.log("Connexion à MongoDB échouée !", error));
 
- // ********BODY-PARSER
+ // *** BODY-PARSER
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
-
+// configuring middleware to handle URL-encoded form data.
 app.use(express.urlencoded({extended: true}));
 
-app.use('/furniture', furniture);  // Api path
-app.use('/users', users);  // Api path
-  module.exports = app;
+// *** Api path , one for the furnitures and one for the users
+app.use('/furniture', furniture);  
+app.use('/users', users);  
+module.exports = app;
 
 
 

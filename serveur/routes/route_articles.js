@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 const furnitureCtrl= require("../controllers/controllers_articles");
-router.get("/articles", furnitureCtrl.getAll);
-router.post("/articles", furnitureCtrl.create);
+router.get("/articles", furnitureCtrl.getArticles);
+router.post("/articles", furnitureCtrl.createArticles);
 
 module.exports = router;

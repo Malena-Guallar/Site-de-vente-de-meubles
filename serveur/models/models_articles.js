@@ -1,11 +1,11 @@
 // import { Schema, model } from 'mongoose';
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 // ****************************champs souhaites avec la methode Schema
 const Article = mongoose.Schema({
   type: { type: String, required: true },
-  status: { type: String, required: true},
+  status: { type: String, required: true },
   color: { type: Array, required: true },
-  material: { type: String, required: true },
+  material: { type: Array, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
@@ -13,7 +13,7 @@ const Article = mongoose.Schema({
   size_width: { type: Number, required: false },
   size_deep: { type: Number, required: false },
   picture: { type: Array, required: false },
+  seller: { type: String, required: true },
 });
 
-module.exports = mongoose.model('Article', Article);
-
+module.exports = mongoose.model("Article", Article);
