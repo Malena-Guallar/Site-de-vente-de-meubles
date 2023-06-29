@@ -3,13 +3,20 @@ import React from "react";
 function Footer() {
     return(
         
-        <footer className="fixed bottom-0 bg-gray-900 text-white">
-            <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-7"></div>
+        <footer class = "bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left ">
+            <div class="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left flex justify-between">
+                <p> Who are we ? </p>
+                    <p>FAQ</p>
+                    <p>GCU</p>
+                    <p>Contact</p>
+            </div>
+            
+            <div class="p-4 text-center text-neutral-700 dark:text-neutral-200">
+                    © 2023 Copyright:
+                    <a class="text-neutral-800 dark:text-neutral-400">9.30</a>
+            </div>
+
         
-            <p> Who are we ? </p>
-            <p>FAQ</p>
-            <p>GCU</p>
-            <p>Contact</p>
 
         </footer>
         

@@ -21,7 +21,8 @@ function Home () {
 
     return (
         <>
-        <div>coucou pq tu marches pas</div>        
+        <div>coucou pq tu marches pas</div>     
+         
         </>
 
 
