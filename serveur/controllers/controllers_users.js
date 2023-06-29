@@ -35,6 +35,7 @@ exports.loginUser = (req, res, next) => {
           }
           res.status(200).json({
             message: "Successfully connected", // A success message indicating a successful connection
+            isAdmin: user.isAdmin, 
             userId: user._id, // The unique identifier of the user who connected successfully
             token: jwt.sign( // Generating a JSON Web Token (JWT) for the user
               { userId: user._id }, // Payload of the JWT containing the user's ID
