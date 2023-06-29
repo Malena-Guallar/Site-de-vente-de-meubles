@@ -39,6 +39,7 @@ function Furnitures () {
 
     return (
 
+
         <div>
             <p>Filtres : </p>
 
@@ -67,7 +68,11 @@ function Furnitures () {
         </div>
     );
     
+    
 };
 
 export default Furnitures;
 
+
+
+// https://649ada96bf7c145d02399a1b.mockapi.io/furniture/articles
