@@ -1,17 +1,24 @@
 import React from 'react';
 
-function Furniture () {
+function Furniture ({ picture, type, description, price, material, size_height, size_width, size_deep }) {
+
     return (
         <div>
-            <img  />{/*photo*/}
-            <h1>{/*furniture name*/}</h1>
-            <p>{/*description*/}</p>
-            <p>{/*material*/}</p>
-            <p>{/*price*/}</p>
-            <ul>{/*dimensions/sizes*/}</ul>
+            <p>ceci est un meuble</p>
+            <img src={picture} alt="products"/>
+            <h1>{type}</h1>
+            <p>{description}</p>
+            <p>{price}</p>
+            <p>{material}</p>
+            <ul>
+                <li>{size_height}</li>
+                <li>{size_width}</li>
+                <li>{size_deep}</li>
+            </ul>
             <button>{/*add to cart*/}</button>
         </div>
     );
+
 };
 
 export default Furniture;
