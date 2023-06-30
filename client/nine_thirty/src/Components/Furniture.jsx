@@ -1,5 +1,8 @@
+// Composant enfant qui va être importé dans la page Furnitures. 
+
 import React from 'react';
 
+// ici on défini toutes les props qui composent chaque produit. 
 function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width }) {
 
     return (
@@ -18,7 +21,6 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
             <button>{/*add to cart*/}</button>
         </div>
     )
-
 };
 
 export default Furniture;

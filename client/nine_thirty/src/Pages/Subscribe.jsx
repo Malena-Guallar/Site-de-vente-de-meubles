@@ -1,9 +1,12 @@
+// Page qui permet l'inscription d'un nouvel utilisateur. 
+
 import React, { useState } from "react";
 
 
 function Subscribe() {
     
-    // States for registration
+    // Ici on déclare plusieurs variables et on leur attribue un état par défaut. On crée également les fonctions
+    // "set" qui vont permettre de modifier cet état. 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
@@ -11,15 +14,15 @@ function Subscribe() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [subscribed, setSubscribed] = useState(false);
 
-    // States for checking the errors
+    // Idem pour vérifier si le formulaire a été soumis et pour la vérification d'erreurs. 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
 
 
-    // Handling email change
+    // Ici on crée les fonctions qui permettent de récupérer la valeur rentrée dans chaque input du formulaire. 
     const handleEmail = (e) => {
-        setEmail(e.target.value);
-        setSubmitted(false);
+        setEmail(e.target.value); // on set l'état de la const email à la valeur de l'input
+        setSubmitted(false); // le formulaire reste non soumis car les inputs ne sont pas tous remplis. 
     };
 
     // Handling name change
@@ -51,18 +54,21 @@ function Subscribe() {
         e.preventDefault();
         console.log(name, email, surname, password, confirmPassword);
 
+        // On vérifie que tous les champs sont remplis, auquel cas un message d'erreur s'affichera. 
         if (name === '' || email === '' || surname === ''|| password === '' || confirmPassword === ''){
             setError(true);
 
-        // Password verification
+        // Password verification - idem ici on aura une erreur si les mots de passe ne sont pas identiques. 
         } else if (password != confirmPassword) {
             setError(true);
             console.log("ca marche ap")
 
+        // Si tous les champs sont remplis correctement alors on modifie l'état de soumission du formulaire à true ;
         } else {
             setSubmitted(true);
             setError(false);
 
+            // Requête Post pour inscrire le nouvel utilisateur dans la bdd. 
             fetch('https://649ada96bf7c145d02399a1b.mockapi.io/furniture/Users', {
                 method: 'POST',
                 headers: {
@@ -81,6 +87,7 @@ function Subscribe() {
     return (
 
         <div>
+        {/* Pour inscrire des fonctions en JS dans les div on le fait entre {} */}
         {!subscribed ? ( 
                 <form onSubmit={handleSubmit}>
                     <p class="text-red-100">subscription</p>

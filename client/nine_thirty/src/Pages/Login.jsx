@@ -1,3 +1,5 @@
+// Page qui permet à un utilisateur de se logger. 
+
 import React, { useState } from "react";
 
 
@@ -68,4 +70,4 @@ function Login() {
 };
 
 
-export default Login 
+export default Login;
