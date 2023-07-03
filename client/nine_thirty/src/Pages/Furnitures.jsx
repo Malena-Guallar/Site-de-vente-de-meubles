@@ -59,7 +59,7 @@ function Furnitures() {
             <Furniture
             className="Furniture"
               key={element.id}
-              picture={element.picture}
+              picture={element.picture.path}
               type={element.type}
               description={element.description}
               price={element.price + " €"}
@@ -75,4 +75,3 @@ function Furnitures() {
 }
 
 export default Furnitures;
-
