@@ -9,8 +9,7 @@ import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
 import Subscribe from "./Pages/Subscribe";
-import Login from "./Pages/Login";
-import Footer from "./Components/Footer";
+import Login from "./Pages/Login"
 
 function App() {
  
@@ -18,7 +17,7 @@ function App() {
     <>
       
       <BrowserRouter>
-        <Header />
+      <Header />
       
         <Routes>
             <Route path="/" element={<Home />} ></Route>
@@ -28,10 +27,8 @@ function App() {
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/login" element={<Login />} />
         </Routes>
-        <Footer />
-      </BrowserRouter>
       
-    
+      </BrowserRouter>
     </>
 
   )

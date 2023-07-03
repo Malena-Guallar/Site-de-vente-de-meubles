@@ -1,5 +1,7 @@
 // Page d'accueil sur laquelle on aimerait implémenter un caroussel avec qques photos de meubles. 
-import React, { useEffect } from "react";function Home() {
+import React, { useEffect } from "react";
+
+function Home() {
     useEffect(() => {
         // Initialize the carousel
         const carousel = document.querySelector("[data-te-carousel-init]");
@@ -47,7 +49,9 @@ import React, { useEffect } from "react";function Home() {
         src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
         class="block w-full"
         alt="Wild Landscape" />
-    </div>    <div
+    </div>
+
+    <div
       class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
       data-te-carousel-item>
       <img
@@ -64,7 +68,9 @@ import React, { useEffect } from "react";function Home() {
         class="block w-full"
         alt="Exotic Fruits" />
     </div>
-  </div>  <button
+  </div>
+
+  <button
     class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
     type="button"
     data-te-target="#carouselExampleControls"
@@ -114,7 +120,6 @@ import React, { useEffect } from "react";function Home() {
 </div>
       </>
   );
-}export default Home;
+}
 
-
- 
+export default Home;

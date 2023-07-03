@@ -69,7 +69,7 @@ function Subscribe() {
             setError(false);
 
             // Requête Post pour inscrire le nouvel utilisateur dans la bdd. 
-            fetch('https://649ada96bf7c145d02399a1b.mockapi.io/furniture/Users', {
+            fetch('http://localhost:8000/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ function Subscribe() {
         {/* Pour inscrire des fonctions en JS dans les div on le fait entre {} */}
         {!subscribed ? ( 
                 <form onSubmit={handleSubmit}>
-                    <p class="text-red-100">subscription</p>
+                    <p className="text-red-100">subscription</p>
                     <input type="email" placeholder="Enter your email" id="email" value={email} onChange={handleEmail}/>
                     <input type="text" placeholder="Enter your name" id="name" value={name} onChange={handleName}/>
                     <input type="text" placeholder="Enter your surname" id="surname" value={surname} onChange={handleSurname}/>
