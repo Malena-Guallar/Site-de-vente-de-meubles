@@ -53,3 +53,16 @@ exports.deleteArticles = async (req, res) => {
   const deleteArticle = await article.deleteOne();
   res.status(200).json({ message: "Successfully deleted" });
 };
+
+exports.getImage = (req, res, next) => {
+  const picture = req.body.picture; 
+  Article.findOne({ picture })
+  .then((article) => {
+    res.status(200).json(article);
+  })
+  .catch((error) => {
+    res.status(400).json({
+      error: error,
+    });
+  });
+}
