@@ -14,7 +14,7 @@ function Buttons({ setCategory, categories }) {
               return (
                     // Au onclick, on appelle la fonction setCategory et qui va donner un nouvel état à la variable category,
                     // à savoir la catégorie de l'objet en cours. 
-                    <button class="bg-green-100 m-5" onClick={() => setCategory(valeur)} key={id}>
+                    <button classname="bg-green-100 m-5" onClick={() => setCategory(valeur)} key={id}>
                         {/* Le contenu du button est la catégorie.  */}
                         {valeur}
                     </button> 

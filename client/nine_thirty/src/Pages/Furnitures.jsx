@@ -9,7 +9,6 @@ function Furnitures() {
   const [data, setData] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-
   // cette constante va permettre de récupérer les catégories pour chaque meuble présent dans data.
   const categories = [...new Set(data.map((element) => element.category))];
 
@@ -20,7 +19,7 @@ function Furnitures() {
         .then((response) => response.json())
         .then((dataLocal) => {
           setData(dataLocal);
-          console.log(dataLocal);
+          // console.log(dataLocal);
         });
     };
     getData();
@@ -52,24 +51,27 @@ function Furnitures() {
       )}
 
       {/* Pour mapper sur le tableau data on doit d'abord vérifier son existence (peut-être qu'il y a un autre moyen mais on l'a pas trouvé) */}
-      {data
-        ? data.map((element) => (
-            // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
-            // en personnalisant ses props avec les données de l'objet concerné.
-            <Furniture
-            className="Furniture"
-              key={element.id}
-              picture={element.picture.path}
-              type={element.type}
-              description={element.description}
-              price={element.price + " €"}
-              material={element.material}
-              size_height={element.size_height}
-              size_width={element.size_width}
-              size_deep={element.size_deep}
-            />
-          ))
-        : null}
+     <div className="flex flex-col justify-center items-center">
+        {data
+          ? data.map((element) => (
+              // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
+              // en personnalisant ses props avec les données de l'objet concerné.
+              <div className="Furniture">
+              <Furniture
+                key={element.id}
+                picture={element.picture.path}
+                type={element.type}
+                description={element.description}
+                price={element.price + " €"}
+                material={element.material}
+                size_height={element.size_height}
+                size_width={element.size_width}
+                size_deep={element.size_deep}
+              />
+               </div>
+            ))
+          : null}
+     </div>
     </div>
   );
 }
