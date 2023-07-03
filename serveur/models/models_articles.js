@@ -12,7 +12,7 @@ const Article = mongoose.Schema({
   size_height: { type: Number, required: false },
   size_width: { type: Number, required: false },
   size_deep: { type: Number, required: false },
-  picture: { type: Array, required: false },
+  picture: { type: Object, required: false },
   seller: { type: String, required: true },
 });
 
