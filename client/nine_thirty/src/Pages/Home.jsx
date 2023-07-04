@@ -29,7 +29,7 @@ import React, { useEffect } from "react";function Home() {
     
   return (
     <div className="h-screen">
-      <p>Home page</p >
+      {/* <p>Home page</p > */}
       <div
   id="carouselExampleControls"
   className="relative h-full"

@@ -56,7 +56,7 @@ function Furnitures() {
           ? data.map((element) => (
               // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
               // en personnalisant ses props avec les données de l'objet concerné.
-              <div className="Furniture">
+              <div className="shadow-lg shadow-slate-200 p-2 m-2 rounded-xl w-2/3">
               <Furniture
                 key={element.id}
                 picture={element.picture.path}

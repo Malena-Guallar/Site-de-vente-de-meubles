@@ -16,7 +16,7 @@ function Login() {
     }
   }, []);
 
-  // Handling email change
+  // Handling email change 
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };

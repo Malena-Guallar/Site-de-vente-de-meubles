@@ -3,7 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.Furniture {
-    @apply shadow-lg shadow-slate-200 p-2 m-2 rounded-xl w-2/3
+.NavigationUL li:hover {
+    @apply bg-[#2E2E68] text-white rounded-md;
+  }
+  
+.NavigationUL li {
+    @apply h-fit w-fit p-2;
+}
+  
+.NavigationUL li:active {
+    @apply bg-[#2a2ab3];
 }

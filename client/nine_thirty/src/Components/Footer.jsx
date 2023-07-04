@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
     return(
         
-        <footer className = "bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left ">
+        <footer className = "px-2 py-1 bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left ">
             <div className="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left flex justify-between">
                 <p> Who are we ? </p>
                     <p>FAQ</p>
