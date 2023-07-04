@@ -11,24 +11,30 @@ import Header from "./Components/Header";
 import Subscribe from "./Pages/Subscribe";
 import Login from "./Pages/Login";
 import Footer from "./Components/Footer";
+import FirstVisit from "./Pages/FirstVisit";
 
 function App() {
  
   return (
     <>
+      <FirstVisit />
       
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
       
         <Routes>
-            <Route path="/" element={<Home />} ></Route>
-            <Route path="/furnitures" element={<Furnitures />} ></Route>
+            {/* <Route path="/" element={<Home />} ></Route> */}
+
+            {/* TEST AFFICHAGE  */}
+            {/* <Route path="/" element={<FirstVisit />} ></Route> */}
+
+            {/* <Route path="/furnitures" element={<Furnitures />} ></Route>
             <Route path="/outdoor" element={<Outdoor />} ></Route>
             <Route path="/indoor" element={<Indoor />} ></Route>
             <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} /> */}
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
       
     

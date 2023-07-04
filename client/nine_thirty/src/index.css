@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+    background: url("../public/living-room.jpg") center/cover;
+}
