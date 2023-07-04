@@ -11,7 +11,7 @@ import Header from "./Components/Header";
 import Subscribe from "./Pages/Subscribe";
 import Login from "./Pages/Login"
 import Footer from "./Components/Footer";
-import FirstVisit from "./Pages/FirstVisit";
+import Firstpage from "./Pages/FirstPage";
 
 function App() {
   // Assuming you have a session variable to check its existence
@@ -20,21 +20,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Header />
-      
-        <Routes>
-            {/* <Route path="/" element={<Home />} ></Route> */}
-
-            {/* TEST AFFICHAGE  */}
-            {/* <Route path="/" element={<FirstVisit />} ></Route> */}
-
-            {/* <Route path="/furnitures" element={<Furnitures />} ></Route>
-            <Route path="/outdoor" element={<Outdoor />} ></Route>
-            <Route path="/indoor" element={<Indoor />} ></Route>
-            <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/login" element={<Login />} /> */}
-        </Routes>
-      
         {sessionExists ? (
           <>
             <Header />
@@ -47,7 +32,7 @@ function App() {
             <Footer />
           </>
         ) : (
-          <FirstVisit />
+          <Firstpage />
         )}
       </BrowserRouter>
     </>

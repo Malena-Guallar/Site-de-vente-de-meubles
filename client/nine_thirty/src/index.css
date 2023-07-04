@@ -7,9 +7,10 @@
     background: url("../public/living-room.jpg") center/cover;
 }
 
-.Furniture {
-    @apply bg-slate-500
+.Furniture picture {
+    @apply h-20   
 }
+
 .NavigationUL li:hover {
     @apply bg-[#2E2E68] text-white rounded-md;
   }

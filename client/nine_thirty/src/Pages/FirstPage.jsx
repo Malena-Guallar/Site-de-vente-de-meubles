@@ -1,16 +1,35 @@
-import React from 'react';
-import Login from '../Pages/Login';
-import Subscribe from '../Pages/Subscribe';
+// Première page lorsqu'un visiteur arrive sur l'url de notre site
 
-function Firstpage () {
+import React from "react";
 
+import Subscribe from "./Subscribe";
+import Login from "./Login";
 
-    return (
-        <div>
-            <Subscribe/>
-            <Login/>
+export default function FirstVisit() {
+  return (
+    <div className="w-screen h-screen flex flex-col items-center justify-center">
+      <div className="flex items-center justify-center">
+        <img
+          className="h-40"
+          src="../../public/Logopluspetit.png"
+          alt="Logo du site Nine-Thirty"
+        />
+      </div>
+      <p className="w-2/3 text-center text-l my-6">
+        Nine Thirty, le site de meubles neufs et d'occasion. Achetez ou vendez
+        facilement vos meubles. Une sélection de qualité pour tous les styles et
+        budgets. Simplifiez votre expérience d'achat de meubles avec Nine
+        Thirty.
+      </p>
+
+      <div className="background py-12 px-20 flex flex-row">
+        <div className="ml-6 mr-12">
+          <Subscribe />
         </div>
-    );
-};
-
-export default Firstpage;
+        <div className="mr-6 ml-12 my-auto">
+          <Login />
+        </div>
+      </div>
+    </div>
+  );
+}

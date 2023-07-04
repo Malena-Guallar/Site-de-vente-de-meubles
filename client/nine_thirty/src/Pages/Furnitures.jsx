@@ -51,28 +51,31 @@ function Furnitures() {
       )}
 
       {/* Pour mapper sur le tableau data on doit d'abord vérifier son existence (peut-être qu'il y a un autre moyen mais on l'a pas trouvé) */}
-     <div className="flex flex-wrap justify-center items-center max-h-1/4 ">
+      <div className="flex flex-wrap justify-center items-center">
         {data
           ? data.map((element) => (
-              // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
-              // en personnalisant ses props avec les données de l'objet concerné.
-              <div className="flex-1  shadow-lg shadow-slate-200 p-2 m-2 rounded-xl ">
-              <Furniture
+              <div
+                className="Furniture shadow-lg shadow-slate-200 rounded-xl p-2 m-2 flex-shrink-0 w-1/4 max-w-1/4 "
                 key={element.id}
-                picture={element.picture.path}
-                type={element.type}
-                description={element.description}
-                price={element.price + " €"}
-                material={element.material}
-                size_height={element.size_height}
-                size_width={element.size_width}
-                size_deep={element.size_deep}
-              />
-               </div>
+                style={{ height: "400px", width: "300px" }}
+              >
+                <Furniture
+                  picture={element.picture.path}
+                  type={element.type}
+                  description={element.description}
+                  price={element.price + " €"}
+                  material={element.material}
+                  size_height={element.size_height}
+                  size_width={element.size_width}
+                  size_deep={element.size_deep}
+                  height="100%"
+                  width="100%"
+                />
+              </div>
             ))
           : null}
-     </div>
-    // </div>
+      </div>
+    </div>
   );
 }
 

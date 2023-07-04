@@ -1,13 +1,8 @@
 // Page qui permet à un utilisateur de se logger.
 
-import React, { useState } from "react";
+import React, { useEffect ,useState } from "react";
 
 function Login() {
-  // States for registration
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState("");
   // States for registration
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,10 +32,6 @@ function Login() {
     const response = await fetch(`http://localhost:8000/users/${userId}`);
 
     if (response.ok) {
-      window.location.href = '/';
-      const data = await response.json();
-      setUser(data.name);
-      sessionStorage.setItem("User", data.name); 
       const data = await response.json();
     //   console.log(data);
       setUser(data.name);

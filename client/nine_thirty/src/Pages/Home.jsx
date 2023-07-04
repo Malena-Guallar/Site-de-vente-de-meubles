@@ -49,15 +49,10 @@ function Home() {
         src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
         className="block w-full h-screen object-cover"
         alt="Wild Landscape" />
-<<<<<<< HEAD
     </div>
 
     <div
-      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-=======
-    </div>    <div
       className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
       data-te-carousel-item>
       <img
         src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
@@ -73,15 +68,10 @@ function Home() {
         className="block w-full h-screen object-cover"
         alt="Exotic Fruits" />
     </div>
-<<<<<<< HEAD
   </div>
 
   <button
-    class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-=======
-  </div>  <button
     className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
     type="button"
     data-te-target="#carouselExampleControls"
     data-te-slide="prev">

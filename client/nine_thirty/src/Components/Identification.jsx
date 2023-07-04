@@ -22,11 +22,8 @@ function Identification() {
     <div>
       {isLoggedIn ? (
         <div>
-<<<<<<< HEAD
           <p>Logged in as {sessionStorage.getItem("User")}</p>
-=======
           {/* <p>Logged in as {sessionStorage.getItem("User")}</p> */}
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
           <button onClick={handleLogout}>
             
             <img

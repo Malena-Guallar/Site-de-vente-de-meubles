@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-function Subscribe() {
+export default function Subscribe() {
   // Ici on déclare plusieurs variables et on leur attribue un état par défaut. On crée également les fonctions
   // "set" qui vont permettre de modifier cet état.
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ function Subscribe() {
             .catch(error => console.log(error))
         }
     }
-  };
+
 
   // Form displaying and assigning functions to each input;
   return (
@@ -188,5 +188,3 @@ function Subscribe() {
     </div>
   );
 }
-
-export default Subscribe;
