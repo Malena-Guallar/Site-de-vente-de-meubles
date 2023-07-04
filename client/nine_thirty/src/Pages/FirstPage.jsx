@@ -7,7 +7,8 @@ import Login from "./Login";
 
 export default function FirstVisit() {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <>
+        <div className="w-screen min-h-screen flex flex-col items-center justify-center">
       <div className="flex items-center justify-center">
         <img
           className="h-40"
@@ -31,5 +32,7 @@ export default function FirstVisit() {
         </div>
       </div>
     </div>
+    </>
+
   );
 }
