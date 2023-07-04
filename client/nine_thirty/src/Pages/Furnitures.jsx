@@ -59,7 +59,7 @@ function Furnitures() {
             <Furniture
             className="Furniture"
               key={element.id}
-              picture={element.picture}
+              picture={element.picture.path}
               type={element.type}
               description={element.description}
               price={element.price + " €"}
@@ -75,13 +75,3 @@ function Furnitures() {
 }
 
 export default Furnitures;
-
-//     {/* <p>Filtres : </p>
-
-{
-  /* Ici on importe le composant Buttons qui permet de sélectionner et d'afficher une catégorie de meuble. */
-}
-//      {/* La fonction setCategory est un filtre sur les catégories des objets.  */}
-//      {/* <Buttons setCategory={(category) => filterItem(category, setData, data)} categories={categories} /> */} */}
-
-// https://649ada96bf7c145d02399a1b.mockapi.io/furniture/articles
