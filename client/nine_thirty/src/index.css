@@ -2,3 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+    background: url("../public/living-room.jpg") center/cover;
+}
+
+.Furniture picture {
+    @apply h-20   
+}
+
+.NavigationUL li:hover {
+    @apply bg-[#2E2E68] text-white rounded-md;
+  }
+  
+.NavigationUL li {
+    @apply h-fit w-fit p-2;
+}
+  
+.NavigationUL li:active {
+    @apply bg-[#2a2ab3];
+}

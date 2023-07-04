@@ -2,7 +2,7 @@ import React from 'react';
 
 function Indoor () {
     return (
-        <div>
+        <div className='h-screen'>
             <p>Indoor page</p>
         </div>
     );
