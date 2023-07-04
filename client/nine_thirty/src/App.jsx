@@ -8,15 +8,22 @@ import Furnitures from "./Pages/Furnitures";
 import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
+<<<<<<< HEAD
 import Subscribe from "./Pages/Subscribe";
 import Login from "./Pages/Login"
+=======
+import Firstpage from "./Pages/FirstPage";
+import Footer from "./Components/Footer";
+>>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
 
 function App() {
- 
+  // Assuming you have a session variable to check its existence
+  const sessionExists = !!sessionStorage.getItem("User");
+
   return (
     <>
-      
       <BrowserRouter>
+<<<<<<< HEAD
       <Header />
       
         <Routes>
@@ -28,10 +35,25 @@ function App() {
             <Route path="/login" element={<Login />} />
         </Routes>
       
+=======
+        {sessionExists ? (
+          <>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/furnitures" element={<Furnitures />} />
+              <Route path="/outdoor" element={<Outdoor />} />
+              <Route path="/indoor" element={<Indoor />} />
+            </Routes>
+            <Footer />
+          </>
+        ) : (
+          <Firstpage />
+        )}
+>>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
       </BrowserRouter>
     </>
-
-  )
+  );
 }
 
 export default App;

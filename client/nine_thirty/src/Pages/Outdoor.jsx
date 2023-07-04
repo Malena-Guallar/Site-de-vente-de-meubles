@@ -6,7 +6,7 @@ function Outdoor () {
 
     return (
         <div>
-            <p>Outdoor page</p>
+            {/* <p>Outdoor page</p> */}
             <Furnitures />
         </div>
     );

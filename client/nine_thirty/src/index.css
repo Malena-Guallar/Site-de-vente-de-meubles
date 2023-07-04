@@ -3,7 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 
 .Furniture {
     @apply bg-slate-500
 }
+=======
+.NavigationUL li:hover {
+    @apply bg-[#2E2E68] text-white rounded-md;
+  }
+  
+.NavigationUL li {
+    @apply h-fit w-fit p-2;
+}
+  
+.NavigationUL li:active {
+    @apply bg-[#2a2ab3];
+}
+>>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7

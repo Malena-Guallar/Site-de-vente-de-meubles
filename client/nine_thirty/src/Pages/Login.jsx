@@ -16,7 +16,11 @@ function Login() {
     }
   }, []);
 
+<<<<<<< HEAD
   // Handling email change
+=======
+  // Handling email change 
+>>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -30,10 +34,18 @@ function Login() {
     const response = await fetch(`http://localhost:8000/users/${userId}`);
 
     if (response.ok) {
+<<<<<<< HEAD
       window.location.href = '/';
       const data = await response.json();
       setUser(data.name);
       sessionStorage.setItem("User", data.name); 
+=======
+      const data = await response.json();
+    //   console.log(data);
+      setUser(data.name);
+      sessionStorage.setItem("User", data.name); 
+      window.location.href = '/';
+>>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
     }
   };
 

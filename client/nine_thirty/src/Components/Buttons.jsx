@@ -26,3 +26,4 @@ function Buttons({ setCategory, categories }) {
 }
 
 export default Buttons; 
+

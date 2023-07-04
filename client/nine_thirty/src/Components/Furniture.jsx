@@ -7,7 +7,7 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
 
     return (
         <div>
-            <p>ceci est un meuble</p>
+            {/* <p>ceci est un meuble</p> */}
             <img src={picture} alt="products"/>
             <h1>{type}</h1>
             <p>{description}</p>
