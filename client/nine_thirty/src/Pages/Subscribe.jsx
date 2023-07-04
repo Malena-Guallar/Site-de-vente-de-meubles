@@ -69,7 +69,7 @@ function Subscribe() {
             setError(false);
 
             // Requête Post pour inscrire le nouvel utilisateur dans la bdd. 
-            fetch('https://649ada96bf7c145d02399a1b.mockapi.io/furniture/Users', {
+            fetch('http://localhost:8000/users/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

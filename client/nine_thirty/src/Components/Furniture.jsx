@@ -3,20 +3,20 @@
 import React from 'react';
 
 // ici on défini toutes les props qui composent chaque produit. 
-function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width }) {
+function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width, height, width }) {
 
     return (
-        <div>
+        <div style={{ height: height, width: width }}>
             {/* <p>ceci est un meuble</p> */}
-            <img src={picture} alt="products"/>
-            <h1>{type}</h1>
-            <p>{description}</p>
-            <p>{price}</p>
-            <p>{material}</p>
+            <img src={picture} alt="products picture" className='h-3/4 w-full text-center mb-1'/>
+            <h1>Type:{type}</h1>
+            {/* <p className='truncate'>Description: {description}</p> */}
+            <p>Price: {price}</p>
+            {/* <p>Material: {material}</p> */}
             <ul>
-                <li>{size_height}</li>
-                <li>{size_width}</li>
-                <li>{size_deep}</li>
+                {/* <li>Height: {size_height}</li> */}
+                {/* <li>Width: {size_width}</li> */}
+                {/* <li>Deep: {size_deep}</li> */}
             </ul>
             <button>{/*add to cart*/}</button>
         </div>
@@ -25,3 +25,4 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
 };
 
 export default Furniture;
+

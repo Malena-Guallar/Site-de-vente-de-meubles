@@ -14,3 +14,13 @@
 .NavigationUL li:active {
     @apply bg-[#2a2ab3];
 }
+
+.Furniture picture {
+ @apply h-20
+
+}
+
+.Toggle {
+    z-index: 2;
+    
+}
