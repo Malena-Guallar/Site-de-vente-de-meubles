@@ -1,7 +1,20 @@
 const http = require('http');
 const app = require('./app.js');
 const cors = require('cors');
+const mongoose = require("mongoose");
+
+
 app.use(cors()) 
+
+// *************Connection to MongoDB*************
+mongoose.connect(process.env.DB_MONGO, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("Connexion à MongoDB réussie !"))
+.catch((error) => console.log("Connexion à MongoDB échouée !", error));
+
+
 const normalizePort = val => {
   const port = parseInt(val, 10);
   if (isNaN(port)) {
@@ -41,3 +54,4 @@ server.on('listening', () => {
   console.log('Listening on ' + bind + " at http://localhost:"+port);
 });
 server.listen(port);
+

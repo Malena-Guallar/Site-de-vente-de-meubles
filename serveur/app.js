@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require("mongoose");
 const furniture = require('./routes/route_articles') // Route to the Api furniture
 const users = require('./routes/route_users') // Route to the Api users
 const bodyParser = require('body-parser');
@@ -17,13 +16,7 @@ app.use((req, res, next) => {
     next();
   });
 
-// *************Connection to MongoDB*************
-  mongoose.connect(process.env.DB_MONGO, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch((error) => console.log("Connexion à MongoDB échouée !", error));
+
 
  // *** BODY-PARSER
 // parse requests of content-type - application/x-www-form-urlencoded
