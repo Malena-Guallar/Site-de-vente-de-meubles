@@ -51,12 +51,12 @@ function Furnitures() {
       )}
 
       {/* Pour mapper sur le tableau data on doit d'abord vérifier son existence (peut-être qu'il y a un autre moyen mais on l'a pas trouvé) */}
-     <div className="flex flex-col justify-center items-center">
+     <div className="flex flex-wrap justify-center items-center max-h-1/4 ">
         {data
           ? data.map((element) => (
               // A chaque itération de la boucle sur un objet, on affiche le composant enfant Furniture
               // en personnalisant ses props avec les données de l'objet concerné.
-              <div className="shadow-lg shadow-slate-200 p-2 m-2 rounded-xl w-2/3">
+              <div className="flex-1  shadow-lg shadow-slate-200 p-2 m-2 rounded-xl ">
               <Furniture
                 key={element.id}
                 picture={element.picture.path}
@@ -72,7 +72,7 @@ function Furnitures() {
             ))
           : null}
      </div>
-    </div>
+    // </div>
   );
 }
 
