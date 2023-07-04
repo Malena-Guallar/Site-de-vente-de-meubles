@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from "react";
+// Page qui permet à un utilisateur de se logger.
+
+import React, { useState } from "react";
 
 function Login() {
+  // States for registration
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
   // States for registration
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,11 +23,7 @@ function Login() {
     }
   }, []);
 
-<<<<<<< HEAD
   // Handling email change
-=======
-  // Handling email change 
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -34,18 +37,15 @@ function Login() {
     const response = await fetch(`http://localhost:8000/users/${userId}`);
 
     if (response.ok) {
-<<<<<<< HEAD
       window.location.href = '/';
       const data = await response.json();
       setUser(data.name);
       sessionStorage.setItem("User", data.name); 
-=======
       const data = await response.json();
     //   console.log(data);
       setUser(data.name);
       sessionStorage.setItem("User", data.name); 
       window.location.href = '/';
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
     }
   };
 
@@ -82,26 +82,55 @@ function Login() {
 
   // Form displaying and assigning functions to each input;
   return (
-    <div>
+    <div className="flex w-auto h-auto flex-1 flex-col justify-center px-6 py-10 lg:px-8  bg-slate-100/90 border rounded-lg">
+      <h2 className="pb-2">Connectez vous à votre compte :</h2>
       {!isLoggedIn ? (
-        <form onSubmit={handleSubmit}>
-          <p className="text-red-100">login</p>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            id="email"
-            value={email}
-            onChange={handleEmail}
-          />
-          <input
-            type="password"
-            placeholder="Enter password"
-            id="password"
-            value={password}
-            onChange={handlePassword}
-          />
-          <input type="submit" />
-        </form>
+        <div>
+          <form className="flex flex-col space-y-6 items-center" onSubmit={handleSubmit}>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Votre mail
+              </label>
+              <input
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2"
+                type="email"
+                placeholder="..."
+                id="emailLogin"
+                value={email}
+                onChange={handleEmail}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Votre mot de passe
+              </label>
+              <input
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2"
+                type="password"
+                placeholder="..."
+                id="passwordLogin"
+                require="true"
+                value={password}
+                onChange={handlePassword}
+              />
+            </div>
+            <div className="">
+              <button
+                className="flex w-full justify-center rounded-md bg-[#2E2E68] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                type="submit"
+              >
+                Se connecter
+              </button>
+            </div>
+          </form>
+        </div>
       ) : (
         <p>Hi {user} and welcome </p>
       )}

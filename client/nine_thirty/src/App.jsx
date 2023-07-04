@@ -8,13 +8,10 @@ import Furnitures from "./Pages/Furnitures";
 import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
-<<<<<<< HEAD
 import Subscribe from "./Pages/Subscribe";
 import Login from "./Pages/Login"
-=======
-import Firstpage from "./Pages/FirstPage";
 import Footer from "./Components/Footer";
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
+import FirstVisit from "./Pages/FirstVisit";
 
 function App() {
   // Assuming you have a session variable to check its existence
@@ -23,19 +20,21 @@ function App() {
   return (
     <>
       <BrowserRouter>
-<<<<<<< HEAD
       <Header />
       
         <Routes>
-            <Route path="/" element={<Home />} ></Route>
-            <Route path="/furnitures" element={<Furnitures />} ></Route>
+            {/* <Route path="/" element={<Home />} ></Route> */}
+
+            {/* TEST AFFICHAGE  */}
+            {/* <Route path="/" element={<FirstVisit />} ></Route> */}
+
+            {/* <Route path="/furnitures" element={<Furnitures />} ></Route>
             <Route path="/outdoor" element={<Outdoor />} ></Route>
             <Route path="/indoor" element={<Indoor />} ></Route>
             <Route path="/subscribe" element={<Subscribe />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} /> */}
         </Routes>
       
-=======
         {sessionExists ? (
           <>
             <Header />
@@ -48,9 +47,8 @@ function App() {
             <Footer />
           </>
         ) : (
-          <Firstpage />
+          <FirstVisit />
         )}
->>>>>>> 18979781f0663ace5194e2002b3b5542814a69c7
       </BrowserRouter>
     </>
   );
