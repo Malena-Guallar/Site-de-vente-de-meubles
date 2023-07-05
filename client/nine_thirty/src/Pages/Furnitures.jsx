@@ -34,22 +34,28 @@ function Furnitures() {
     });
     setData(newItem);
   };
+  const handleRefresh = () => {
+    // Refresh the data by making the API call again
+    window.location.reload();
+  };
+
 
   return (
     <div>
-      <p onClick={() => setIsFilterOpen(!isFilterOpen)}>
+      <p onClick={() => setIsFilterOpen(!isFilterOpen)} className="mx-2">
         Filtres: {isFilterOpen ? "▲" : "▼"}
       </p>
       {isFilterOpen && (
         <div>
-          {/* Here you can place the content of your filter */}
           <Buttons
             setCategory={(category) => filterItem(category, setData, data)}
             categories={categories}
           />
         </div>
       )}
-
+    <div className="flex justify-end m-2">
+          <button onClick={handleRefresh} className="bg-[#2E2E68] text-white text-xs p-2 rounded-lg hover:bg-[#5858a3]">Refresh</button>
+        </div>
       {/* Pour mapper sur le tableau data on doit d'abord vérifier son existence (peut-être qu'il y a un autre moyen mais on l'a pas trouvé) */}
       <div className="flex flex-wrap justify-center items-center">
         {data
@@ -70,6 +76,8 @@ function Furnitures() {
                   size_deep={element.size_deep}
                   height="100%"
                   width="100%"
+                  addToCart={() => addToCart(element)}
+                
                 />
               </div>
             ))

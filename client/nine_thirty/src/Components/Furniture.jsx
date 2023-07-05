@@ -17,17 +17,25 @@ function Furniture({
   height,
   width,
 }) {
-  const { setCart } = useContext(CartContext);
-  const { cart } = useContext(CartContext);
+  const [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  // const [cart, setCart] = useState([]);
-
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  },[]);
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
   }, [cart]);
+  
 
-  const handleAddToCart = () => {
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
     const newItem = { type, price, description, picture };
     setCart([...cart, newItem]);
     setShowModal(true);

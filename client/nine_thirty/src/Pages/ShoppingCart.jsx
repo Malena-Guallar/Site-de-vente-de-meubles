@@ -29,6 +29,7 @@ function ShoppingCart() {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
   const generateFakeOrderNumber = () => {
     const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let orderNumber = "";
@@ -58,7 +59,7 @@ function ShoppingCart() {
   };
 
   return (
-    <div className="container mx-auto p-4 h-screen">
+    <div className="container mx-auto p-4 min-h-screen">
       <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>

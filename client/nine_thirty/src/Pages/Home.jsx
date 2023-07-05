@@ -30,7 +30,7 @@ function Home() {
     
     
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       {/* <p>Home page</p > */}
       <div
   id="carouselExampleControls"
