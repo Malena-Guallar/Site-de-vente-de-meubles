@@ -1,6 +1,7 @@
 // Composant enfant qui va être importé dans la page Furnitures. 
 
 import React from 'react';
+import AddtoCart from './AddtoCart';
 
 // ici on défini toutes les props qui composent chaque produit. 
 function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width, height, width }) {
@@ -18,7 +19,7 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
                 {/* <li>Width: {size_width}</li> */}
                 {/* <li>Deep: {size_deep}</li> */}
             </ul>
-            <button>{/*add to cart*/}</button>
+            <AddtoCart />
         </div>
     );
 
