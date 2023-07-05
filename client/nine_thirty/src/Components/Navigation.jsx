@@ -17,6 +17,9 @@ function Navigation () {
                 <NavLink to='/indoor'>
                     <li>Indoor</li>
                 </NavLink>
+                <NavLink to='/add'>
+                    <li>Add article</li>
+                </NavLink>
             </ul>
         </div>
     );

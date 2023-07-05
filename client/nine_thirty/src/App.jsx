@@ -12,6 +12,7 @@ import Footer from "./Components/Footer";
 import Firstpage from "./Pages/FirstPage";
 import Admin from "./Pages/Admin";
 import ShoppingCart from "./Pages/ShoppingCart";
+import AddArticle from "./Pages/AddArticle";
 import { createContext, useState } from "react";
 
 export const CartContext = createContext({});
@@ -37,6 +38,7 @@ function App() {
               <Route path="/furnitures" element={<Furnitures />} />
               <Route path="/outdoor" element={<Outdoor />} />
               <Route path="/indoor" element={<Indoor />} />
+              <Route path="/add" element={<AddArticle />} />
               {isAdmin && <Route path="/admin" element={<Admin />} />} {/* Render Settings only if isAdmin is true */}
               <Route path="/ShoppingCart" element={<ShoppingCart />}></Route>
             </Routes>
