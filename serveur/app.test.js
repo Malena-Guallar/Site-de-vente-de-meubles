@@ -24,7 +24,7 @@ afterEach(async () => {
 // Ici test de la fonction getName. 
 describe('getName', () => {
     it('should return a user name', async () => {
-        const res = await request(app.app).get("/users/649ecfff30ee3a0d92d015f4")
+        const res = await request(app).get("/users/name/Lovelace")
         expect(res.statusCode).toBe(200)
     })
 })
