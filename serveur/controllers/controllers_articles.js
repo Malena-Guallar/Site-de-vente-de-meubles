@@ -22,15 +22,35 @@ exports.getArticlesById = (req, res, next) => {
       });
     });
 };
-exports.createArticles = (req, res, next) => {
-  const articleObjects = req.body;
-  const article = new Article(articleObjects);
+const multer = require("multer");
 
-  article
-    .save()
-    .then(() => res.status(201).json({ message: "Registered articles!" }))
-    .catch((error) => res.status(400).json({ error }));
+const storage = multer.diskStorage({
+  destination: "./assets",
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
+exports.createArticles = (req, res, next) => {
+  upload.single("picture")(req, res, (err) => {
+    if (err) {
+      return res.status(400).json({ error: "Error uploading image" });
+    }
+
+    const article = new Article(req.body);
+
+    if (req.file) {
+      article.picture = "./assets/" + req.file.filename;
+    }
+
+    article.save()
+      .then(() => res.status(201).json({ message: "Registered articles!" }))
+      .catch((error) => res.status(400).json({ error }));
+  });
 };
+
 
 exports.updateArticles = async (req, res) => {
   const article = await Article.findById(req.params._id);

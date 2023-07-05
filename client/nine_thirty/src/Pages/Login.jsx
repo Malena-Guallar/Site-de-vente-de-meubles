@@ -64,6 +64,7 @@ function Login() {
       fetchUser(userId);
       localStorage.setItem("token", data.token);
       localStorage.setItem("isAdmin", data.isAdmin);
+      localStorage.setItem("userId", userId);
     } else {
       console.log("Invalid email or password");
     }

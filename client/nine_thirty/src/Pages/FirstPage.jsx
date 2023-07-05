@@ -12,7 +12,7 @@ export default function FirstVisit() {
       <div className="flex items-center justify-center">
         <img
           className="h-40"
-          src="../../public/Logopluspetit.png"
+          src="./Logo.png"
           alt="Logo du site Nine-Thirty"
         />
       </div>

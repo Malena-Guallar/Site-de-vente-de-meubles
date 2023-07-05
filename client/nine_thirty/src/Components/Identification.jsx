@@ -16,6 +16,7 @@ function Identification() {
     // Clear user's session
     sessionStorage.removeItem("User");
     setIsLoggedIn(false);
+    window.location.reload();
   };
 
   return (
@@ -34,7 +35,7 @@ function Identification() {
              </button>
         </div>
       ) : (
-    <Link to="/Login">
+    <Link to="/Firstpage">
       <div>
         <img
           className="h-6"

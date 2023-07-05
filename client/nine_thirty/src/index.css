@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .background {
-    background: url("../public/living-room.jpg") center/cover;
+    background: url("./living-room.jpg") center/cover;
 }
 
 .Furniture picture {
@@ -21,4 +21,8 @@
   
 .NavigationUL li:active {
     @apply bg-[#2a2ab3];
+}
+
+.Article input{
+ @apply border-2
 }

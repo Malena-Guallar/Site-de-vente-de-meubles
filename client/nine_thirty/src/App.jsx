@@ -8,14 +8,14 @@ import Furnitures from "./Pages/Furnitures";
 import Indoor from "./Pages/Indoor";
 import Outdoor from "./Pages/Outdoor";
 import Header from "./Components/Header";
-import Subscribe from "./Pages/Subscribe";
-import Login from "./Pages/Login"
 import Footer from "./Components/Footer";
 import Firstpage from "./Pages/FirstPage";
+import Admin from "./Pages/Admin";
 
 function App() {
   // Assuming you have a session variable to check its existence
   const sessionExists = !!sessionStorage.getItem("User");
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
 
   return (
     <>
@@ -28,10 +28,12 @@ function App() {
               <Route path="/furnitures" element={<Furnitures />} />
               <Route path="/outdoor" element={<Outdoor />} />
               <Route path="/indoor" element={<Indoor />} />
+              {isAdmin && <Route path="/admin" element={<Admin />} />} {/* Render Settings only if isAdmin is true */}
             </Routes>
             <Footer />
           </>
         ) : (
+          
           <Firstpage />
         )}
       </BrowserRouter>
