@@ -12,14 +12,22 @@ import Footer from "./Components/Footer";
 import Firstpage from "./Pages/FirstPage";
 import Admin from "./Pages/Admin";
 import ShoppingCart from "./Pages/ShoppingCart";
+import { createContext, useState } from "react";
+
+export const CartContext = createContext({});
 
 function App() {
   // Assuming you have a session variable to check its existence
   const sessionExists = !!sessionStorage.getItem("User");
   const isAdmin = localStorage.getItem("isAdmin") === "true";
 
+  const [cart, setCart] = useState([]); 
+
   return (
     <>
+
+    <CartContext.Provider value = {{cart, setCart}}>
+
       <BrowserRouter>
         {sessionExists ? (
           <>
@@ -39,6 +47,8 @@ function App() {
           <Firstpage />
         )}
       </BrowserRouter>
+
+      </CartContext.Provider>
     </>
   );
 }

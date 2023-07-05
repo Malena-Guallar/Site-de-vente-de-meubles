@@ -1,13 +1,17 @@
 // Composant enfant qui va être importé dans la page Furnitures. 
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import AddtoCartButton from './AddtoCartButton';
+import { CartContext } from '../App';
 
 // ici on défini toutes les props qui composent chaque produit. 
 function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width, height, width }) {
 
     
-    const [cart, setCart] = useState([]);
+    const {setCart}  = useContext(CartContext);
+    const {cart} = useContext(CartContext);
+
+    // const [cart, setCart] = useState([]);
 
 
     useEffect(() => {
@@ -21,6 +25,7 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
             setCart([...cart, newItem]);
     }; 
 
+    
     return (
         <div style={{ height: height, width: width }}>
             {/* <p>ceci est un meuble</p> */}
