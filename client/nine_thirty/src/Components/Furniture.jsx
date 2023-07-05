@@ -1,10 +1,25 @@
 // Composant enfant qui va être importé dans la page Furnitures. 
 
-import React from 'react';
-import AddtoCart from './AddtoCart';
+import React, {useState, useEffect} from 'react';
+import AddtoCartButton from './AddtoCartButton';
 
 // ici on défini toutes les props qui composent chaque produit. 
 function Furniture ({ type, price, description, picture, material, size_deep, size_height, size_width, height, width }) {
+
+    
+    const [cart, setCart] = useState([]);
+
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
+
+
+    const handleAddToCart = () => {
+
+            const newItem = { type, price, description, picture };
+            setCart([...cart, newItem]);
+    }; 
 
     return (
         <div style={{ height: height, width: width }}>
@@ -19,7 +34,7 @@ function Furniture ({ type, price, description, picture, material, size_deep, si
                 {/* <li>Width: {size_width}</li> */}
                 {/* <li>Deep: {size_deep}</li> */}
             </ul>
-            <AddtoCart />
+                <AddtoCartButton onClick={handleAddToCart}/>
         </div>
     );
 

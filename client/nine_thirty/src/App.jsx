@@ -11,6 +11,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Firstpage from "./Pages/FirstPage";
 import Admin from "./Pages/Admin";
+import ShoppingCart from "./Pages/ShoppingCart";
 
 function App() {
   // Assuming you have a session variable to check its existence
@@ -29,6 +30,7 @@ function App() {
               <Route path="/outdoor" element={<Outdoor />} />
               <Route path="/indoor" element={<Indoor />} />
               {isAdmin && <Route path="/admin" element={<Admin />} />} {/* Render Settings only if isAdmin is true */}
+              <Route path="/ShoppingCart" element={<ShoppingCart />}></Route>
             </Routes>
             <Footer />
           </>

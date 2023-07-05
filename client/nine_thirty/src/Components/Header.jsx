@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
-import Cart from "./Cart";
+import CartLogo from "./CartLogo";
 import Identification from "./Identification";
 import Admin from "./Admin";
 
@@ -11,7 +11,7 @@ function Header() {
   return (
     <div>
       <Logo />
-      <Cart />
+      <CartLogo />
       {isAdmin && (
         <Admin />
       )}
