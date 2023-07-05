@@ -69,3 +69,33 @@ exports.getUser = (req, res, next) => {
       });
     });
 };
+
+// exports.getName = (req, res) => {
+//   const name = req.params.name ;
+//   const user = { value: name };
+//   User.findOne({ name: req.body.name })
+//     .then((user) => {
+//       res.status(200).json({toto: "tata"});
+//     })
+//     .catch((error) => {
+//       res.status(400).json({
+//         error: error,
+//       });
+//     });
+//  };
+
+// controllers_users.js
+
+exports.getName = (req, res) => {
+  console.log(req.params.name)
+    const name = req.params.name;
+    User.findOne({ name: name})
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};
