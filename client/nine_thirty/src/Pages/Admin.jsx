@@ -117,7 +117,7 @@ function Admin() {
       
         onSubmit={handleSubmit}
         className="Article bg-white p-4 rounded-lg shadow-2xl shadow-slate-500"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
          <h2 className="text-lg font-bold text-slate-700">Create New Article</h2>
         <label>

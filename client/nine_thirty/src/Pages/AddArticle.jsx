@@ -62,6 +62,7 @@ export default function AddArticle() {
 
   function handleSubmit(e, res, req) {
     e.preventDefault();
+    const seller = localStorage.getItem("userId");
     console.log(
       title,
       type,
@@ -105,7 +106,8 @@ export default function AddArticle() {
           height,
           width,
           deep,
-          picture}),
+          picture,
+          seller}),
       })
         .then((res) => res.json())
         .then((res) => alert(JSON.stringify(res.message)))
@@ -114,7 +116,7 @@ export default function AddArticle() {
   }
 
   return (
-    <div className="flex w-auto h-auto flex-1 flex-col justify-center px-6 py-10 lg:px-8  bg-slate-100/90 border rounded-lg">
+    <div className="flex w-auto h-full flex-1 flex-col justify-center px-6 py-10 lg:px-8  bg-slate-100/90 border rounded-lg">
       <h2 className="pb-2 m-auto text-xl font-medium leading-6 text-gray-900">
         Add a new article
       </h2>

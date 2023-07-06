@@ -4,7 +4,7 @@ function Footer() {
     return(
         
         <footer className = "px-2 py-1 bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left ">
-            <div className="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left flex justify-between">
+            <div className="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left flex justify-evenly text-white">
                 <p> Who are we ? </p>
                     <p>FAQ</p>
                     <p>GCU</p>
