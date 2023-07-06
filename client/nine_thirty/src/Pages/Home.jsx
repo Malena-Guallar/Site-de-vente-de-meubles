@@ -30,7 +30,7 @@ function Home() {
     
     
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       {/* <p>Home page</p > */}
       <div
   id="carouselExampleControls"
@@ -46,27 +46,27 @@ function Home() {
       data-te-carousel-item
       data-te-carousel-active>
       <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
+        src="./brick-wall-1850095_1280.jpg"
         className="block w-full h-screen object-cover"
-        alt="Wild Landscape" />
+        alt="Living room picture" />
     </div>
 
     <div
       className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
       data-te-carousel-item>
       <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
+        src="./kitchen-2400367_1280.jpg"
         className="block w-full h-screen object-cover"
-        alt="Camera" />
+        alt="Kitchen picture" />
     </div>
    
     <div
       className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
       data-te-carousel-item>
       <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
+        src="./teak-172642_1280.jpg"
         className="block w-full h-screen object-cover"
-        alt="Exotic Fruits" />
+        alt="House near sea picture" />
     </div>
   </div>
 

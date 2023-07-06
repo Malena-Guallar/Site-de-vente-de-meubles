@@ -34,30 +34,36 @@ function Furnitures() {
     });
     setData(newItem);
   };
+  const handleRefresh = () => {
+    // Refresh the data by making the API call again
+    window.location.reload();
+  };
+
 
   return (
     <div>
-      <p onClick={() => setIsFilterOpen(!isFilterOpen)}>
-        Filtres: {isFilterOpen ? "▲" : "▼"}
+      <p onClick={() => setIsFilterOpen(!isFilterOpen)} className="pt-4 pl-4 mx-2">
+        Filtrer {isFilterOpen ? "▲" : "▼"}
       </p>
       {isFilterOpen && (
         <div>
-          {/* Here you can place the content of your filter */}
           <Buttons
             setCategory={(category) => filterItem(category, setData, data)}
             categories={categories}
           />
         </div>
       )}
-
+    <div className="flex justify-end m-2">
+          <button onClick={handleRefresh} className="bg-[#2E2E68] text-white text-xs p-2 rounded-lg hover:bg-[#5858a3]">Refresh</button>
+        </div>
       {/* Pour mapper sur le tableau data on doit d'abord vérifier son existence (peut-être qu'il y a un autre moyen mais on l'a pas trouvé) */}
       <div className="flex flex-wrap justify-center items-center">
         {data
           ? data.map((element) => (
               <div
-                className="Furniture shadow-lg shadow-slate-200 rounded-xl p-2 m-2 flex-shrink-0 w-1/4 max-w-1/4 "
+                // className="Furniture shadow-lg shadow-slate-200 rounded-xl p-2 m-2 flex-shrink-0 w-1/4 max-w-1/4"
                 key={element.id}
-                style={{ height: "400px", width: "300px" }}
+                style={{ height: "550px", width: "300px" }}
               >
                 <Furniture
                   picture={element.picture || "./LogoImage.png"}
@@ -68,8 +74,10 @@ function Furnitures() {
                   size_height={element.size_height}
                   size_width={element.size_width}
                   size_deep={element.size_deep}
-                  height="100%"
-                  width="100%"
+                  // height="100%"
+                  // width="100%"
+                  addToCart={() => addToCart(element)}
+                
                 />
               </div>
             ))

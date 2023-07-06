@@ -6,17 +6,27 @@ import Identification from "./Identification";
 import Admin from "./Admin";
 
 function Header() {
-    const isAdmin = localStorage.getItem("isAdmin") === "true";
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
 
   return (
     <div>
-      <Logo />
-      <CartLogo />
-      {isAdmin && (
-        <Admin />
-      )}
-      <Identification />
-      <Navigation />
+      <div className="">
+        <Logo />
+      </div>
+      <div className="flex justify-end items-center space-x-5 mx-4">
+        <div>
+          <CartLogo />
+        </div>
+        {isAdmin && (
+          <div>
+            <Admin />
+          </div>
+        )}
+          <Identification />
+      </div>
+      <div className="mx-4">
+        <Navigation />
+      </div>
     </div>
   );
 }

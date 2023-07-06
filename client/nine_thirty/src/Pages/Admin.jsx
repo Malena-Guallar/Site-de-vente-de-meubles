@@ -4,7 +4,7 @@ function Admin() {
   const [articles, setArticles] = useState([]);
   const [deleteMessage, setDeleteMessage] = useState("");
   const [formData, setFormData] = useState({});
-  const [picture, setPicture] = useState({})
+  const [picture, setPicture] = useState({});
   // Fetch all articles from the server
   useEffect(() => {
     fetch("http://localhost:8000/furnitures/articles")
@@ -79,26 +79,31 @@ function Admin() {
       });
   };
   return (
-    <div>
-      <h1>Admin Panel</h1>
+    <div className="m-10">
+      <h1 className="text-2xl font-bold text-slate-700 mb-4">Admin Panel</h1>
       {deleteMessage && <p>{deleteMessage}</p>}
-      <table>
+      <table className="w-full mb-4 shadow-2xl rounded-lg shadow-slate-500">
         <thead>
           <tr>
-            <th>Id</th>
-            {/* <th>Title</th> */}
-            <th>Description</th>
-            <th>Actions</th>
+            {/* <th className="px-4 py-2 border border-gray-300">Id</th> */}
+            <th className="px-4 py-2 border border-gray-300"> Type</th>
+            <th className="px-4 py-2 border border-gray-300">Description</th>
+            <th className="px-4 py-2 border border-gray-300">Actions</th>
           </tr>
         </thead>
         <tbody>
           {articles.map((article) => (
             <tr key={article._id}>
-              <td>{article._id}</td>
-              {/* <td>{article.title}</td> */}
-              <td>{article.description}</td>
-              <td>
-                <button onClick={() => handleDelete(article._id)}>
+              {/* <td className="border border-gray-300 px-4 py-2">  {article._id}    </td> */}
+              <td className="border border-gray-300 px-4 py-2">{article.type}</td>
+              <td className="border border-gray-300 px-4 py-2">
+                {article.description}
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                <button
+                  className="bg-[#2E2E68] hover:bg-red-500 text-white px-4 py-2 rounded"
+                  onClick={() => handleDelete(article._id)}
+                >
                   Delete
                 </button>
               </td>
@@ -107,8 +112,14 @@ function Admin() {
         </tbody>
       </table>
 
-      <h2>Create New Article</h2>
-      <form onSubmit={handleSubmit} className="Article bg-slate-500" enctype="multipart/form-data">
+     
+      <form
+      
+        onSubmit={handleSubmit}
+        className="Article bg-white p-4 rounded-lg shadow-2xl shadow-slate-500"
+        encType="multipart/form-data"
+      >
+         <h2 className="text-lg font-bold text-slate-700">Create New Article</h2>
         <label>
           Title:
           <input
@@ -218,16 +229,18 @@ function Admin() {
             type="file"
             name="picture"
             onChange={(e) => {
-              const file = e.target.files[0]
+              const file = e.target.files[0];
               if (file) {
-                setPicture(file.name)
+                setPicture(file.name);
               }
             }}
             accept="image/*"
           />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <div className="text-center">
+        <button className="Submit bg-[#2E2E68] text-white p-2 rounded-md hover:bg-[#8686d6]" type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

@@ -15,6 +15,7 @@ function Identification() {
   const handleLogout = () => {
     // Clear user's session
     sessionStorage.removeItem("User");
+    localStorage.removeItem("cart");// trouver une solution pou un panier par user
     setIsLoggedIn(false);
     window.location.reload();
   };
@@ -23,7 +24,6 @@ function Identification() {
     <div>
       {isLoggedIn ? (
         <div>
-          <p>Logged in as {sessionStorage.getItem("User")}</p>
           {/* <p>Logged in as {sessionStorage.getItem("User")}</p> */}
           <button onClick={handleLogout}>
             
