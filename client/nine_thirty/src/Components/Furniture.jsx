@@ -1,8 +1,7 @@
 // Composant enfant qui va être importé dans la page Furnitures.
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import AddtoCartButton from "./AddtoCartButton";
-import { CartContext } from "../App";
 
 // ici on défini toutes les props qui composent chaque produit.
 function Furniture({
@@ -17,8 +16,11 @@ function Furniture({
   height,
   width,
 }) {
+
   const [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [turnedcard, setTurnedCard] = useState(false)
+  const iscardTurned =() => turnedcard? setTurnedCard(false) : setTurnedCard(true)
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
@@ -45,21 +47,18 @@ function Furniture({
 };
   return (
 
-    <div class=" shadow-lg shadow-slate-200 rounded-xl p-2 m-2 flex-shrink-0 whitespace-normal"
-    >
+    <div class=" shadow-lg shadow-slate-200 rounded-xl p-2 m-2 flex-shrink-0 whitespace-normal">
             <div class="flex h-60 items-center ">
-                <img
-                src={picture}
-                alt="products picture"
-                class="h-3/4 w-full text-center mb-1"
-                />
+                <img src={picture} alt="products picture" class="h-3/4 w-full text-center mb-1"/>
             </div>
+            
             <div>
               <h1 class="flex font-medium h-28 items-center text-left">{type}</h1>
             </div>
             <div class="flex font-medium h-10 items-center text-left">
               <p class="font-light">{price}</p>
             </div>
+            <button onClick={iscardTurned}> more info</button>
             <div class="mb-4">
               <AddtoCartButton onClick={handleAddToCart} />
               {showModal && (
