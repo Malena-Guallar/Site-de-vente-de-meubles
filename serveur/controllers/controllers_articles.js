@@ -1,5 +1,8 @@
 const Article = require("../models/models_articles");
 
+const fs = require("fs");
+const path = require("path");
+
 exports.getArticles = (req, res, next) => {
   Article.find()
     .then((articles) => {
@@ -22,34 +25,45 @@ exports.getArticlesById = (req, res, next) => {
       });
     });
 };
-const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: "./assets",
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage });
 
 exports.createArticles = (req, res, next) => {
-  upload.single("picture")(req, res, (err) => {
-    if (err) {
-      return res.status(400).json({ error: "Error uploading image" });
-    }
+  const articleObjects = req.body;
+  const article = new Article(articleObjects);
 
-    const article = new Article(req.body);
+  if (req.file) {
+    const pictureName = req.file.originalname;
+    const cheminDestination = path.join(__dirname, "../assets/");
 
-    if (req.file) {
-      article.picture = "./assets/" + req.file.filename;
-    }
+    const nouveauChemin = path.join(cheminDestination, pictureName);
 
-    article.save()
-      .then(() => res.status(201).json({ message: "Registered articles!" }))
-      .catch((error) => res.status(400).json({ error }));
-  });
+    fs.rename(req.file.path, nouveauChemin, (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Une erreur est survenue lors de l'enregistrement de la photo");
+      } else {
+        article.picture = pictureName; // Add picture field to the article object
+        saveArticle(article);
+      }
+    });
+  } else {
+    saveArticle(article);
+  }
+
+  function saveArticle(article) {
+    article
+      .save()
+      .then(() => {
+        res.status(201).json({ message: "Registered articles!" });
+      })
+      .catch((error) => {
+        res.status(400).json({ error: error.message });
+      });
+  }
 };
+
+
+
 
 
 exports.updateArticles = async (req, res) => {
@@ -64,14 +78,24 @@ exports.updateArticles = async (req, res) => {
   res.status(200).json({ message: " Updated" });
 };
 
+// exports.deleteArticles = async (req, res) => {
+//   const article = await Article.findById(req.params._id);
+//   if (!article) {
+//     res.status(400).json({ message: "Not found!" });
+//   }
+
+//   const deleteArticle = await article.deleteOne();
+//   res.status(200).json({ message: "Successfully deleted" });
+// };
+
 exports.deleteArticles = async (req, res) => {
   const article = await Article.findById(req.params._id);
   if (!article) {
-    res.status(400).json({ message: "Not found!" });
+    return res.status(400).json({ message: "Article not found!" });
   }
 
-  const deleteArticle = await article.deleteOne();
-  res.status(200).json({ message: "Successfully deleted" });
+  await article.deleteOne();
+  return res.status(200).json({ message: "Successfully deleted" });
 };
 
 exports.getImage = (req, res, next) => {

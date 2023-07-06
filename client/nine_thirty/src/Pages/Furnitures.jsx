@@ -66,7 +66,7 @@ function Furnitures() {
                 style={{ height: "400px", width: "300px" }}
               >
                 <Furniture
-                  picture={element.picture || "./LogoImage.png"}
+                  picture={"http://localhost:8000/assets/" + element.picture || "./LogoImage.png"}
                   type={element.type}
                   description={element.description}
                   price={element.price + " €"}

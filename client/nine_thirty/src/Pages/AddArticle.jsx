@@ -13,6 +13,7 @@ export default function AddArticle() {
   const [deep, setDeep] = useState("");
   const [error, setError] = useState(false);
   const [picture, setPicture] = useState("");
+  const [file, setFile] = useState("");
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -60,22 +61,27 @@ export default function AddArticle() {
     console.log(deep);
   };
 
-  function handleSubmit(e, res, req) {
+  function handleSubmit(e) {
     e.preventDefault();
     const seller = localStorage.getItem("userId");
-    console.log(
-      title,
-      type,
-      color,
-      material,
-      description,
-      price,
-      quantity,
-      height,
-      width,
-      deep
-    );
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("type", type);
+    formData.append("color", color);
+    formData.append("material", material);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("quantity", quantity);
+    formData.append("height", height);
+    formData.append("width", width);
+    formData.append("deep", deep);
+    formData.append("seller", seller);
+ 
 
+    if (file) {
+      const pictureFile = new File([file], file.name); // Create a File object
+      formData.append("picture", pictureFile);
+    }
     if (
       !title ||
       !type ||
@@ -90,30 +96,22 @@ export default function AddArticle() {
     ) {
       alert("You must fill all the inputs");
     } else {
-      fetch("http://localhost:8000/furnitures/articles", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          type,
-          color,
-          material,
-          description,
-          price,
-          quantity,
-          height,
-          width,
-          deep,
-          picture,
-          seller}),
+
+    fetch("http://localhost:8000/furnitures/articles", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          setError(true);
+        } else {
+          setError(false);
+          alert(data.message);
+        }
       })
-        .then((res) => res.json())
-        .then((res) => alert(JSON.stringify(res.message)))
-        .catch((error) => console.log(error));
-    }
-  }
+      .catch((error) => console.log(error));
+  }}
 
   return (
     <div className="flex w-auto h-full flex-1 flex-col justify-center px-6 py-10 lg:px-8  bg-slate-100/90 border rounded-lg">
@@ -251,6 +249,7 @@ export default function AddArticle() {
                 const file = e.target.files[0];
                 if (file) {
                   setPicture(file.name);
+                  setFile(file)
                 }
               }}
               accept="image/*"

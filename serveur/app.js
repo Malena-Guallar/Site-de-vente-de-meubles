@@ -4,6 +4,7 @@ const furniture = require('./routes/route_articles') // Route to the Api furnitu
 const users = require('./routes/route_users') // Route to the Api users
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require("path");
 
 const app = express();
 require("dotenv").config();
@@ -34,6 +35,10 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({extended: true}));
 
 // *** Api path , one for the furnitures and one for the users
+// Add the following code to serve the pictures from the assets directory
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use(express.static("assets"));
+
 app.use('/furnitures', furniture);  
 app.use('/users', users);  
 module.exports = app;
