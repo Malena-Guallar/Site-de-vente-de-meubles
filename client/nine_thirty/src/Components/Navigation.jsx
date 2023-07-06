@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function Navigation () {
     return (
-        <div className='shadow-slate-400 shadow-xl rounded-lg h-12 m-1'>
+        <div className='bg-[#B06842] '>
             <ul className="flex justify-evenly NavigationUL">
                 <NavLink to='/'>
                     <li>Home</li>
@@ -26,3 +26,5 @@ function Navigation () {
 };
 
 export default Navigation;
+
+// shadow-slate-400 shadow-xl rounded-lg h-12 m-1

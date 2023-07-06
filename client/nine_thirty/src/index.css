@@ -12,7 +12,7 @@
 }
 
 .NavigationUL li:hover {
-  @apply bg-[#2E2E68] text-white rounded-md;
+  @apply text-white rounded-md;
 }
 
 .NavigationUL li {
